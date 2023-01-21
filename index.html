@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <main>
+        <section id="loader" class="none">
+            <div class="container">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+            </div>
+        </section>
+        <section id="auth">
+            <div class="container d-flex justify-content-center">
+                <form id="authForm" class="col-md-4">
+                    <div class="mb-3">
+                      <label for="email" class="form-label">Email address</label>
+                      <input type="email" class="form-control" id="email" aria-describedby="emailHelp" required>
+                      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="username" class="form-label" required>Username</label>
+                        <input type="text" class="form-control" id="username">
+                      </div>
+                    <div class="mb-3">
+                      <label for="password" class="form-label" required>Password</label>
+                      <input type="password" class="form-control" id="password">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Registration</button>
+                    <button type="button" class="btn btn-warning" id="gen">Generate</button>
+                  </form>
+            </div>
+        </section>
+
+        <section id="store">
+            <div class="container">
+                <button type="button" class="btn btn-primary" id="return" onclick="location.reload()">Go Back</button>
+                <div class="buttons d-flex justify-content-end" style="gap: 15px;">
+                    <button type="button" class="btn btn-danger" id="logout">Logout</button>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-primary d-flex" id="cart" style="gap: 10px"> <i class="fa-solid fa-cart-shopping" onclick="fetchCart()"></i><div id="countCart"></div></button>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Shopping Cart</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <section class="h-100" style="background-color: #eee;">
+                                <div class="container h-100 py-5">
+                                  <div class="row d-flex justify-content-center align-items-center h-100">
+                                    <div class="col-10">    
+
+                                      <div class="card">
+                                        <div id="cartItemsBlock">
+
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between mb-5">
+                                                <h5 class="text-uppercase">Total price</h5>
+                                                <h5 id="totalPrice"></h5>
+                                            </div>
+                                          <button type="button" class="btn btn-warning btn-block btn-lg">Proceed to Pay</button>
+                                        </div>
+                                      </div>
+                              
+                                    </div>
+                                  </div>
+                                </div>
+                              </section>                       </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="products-wrap row row-cols-1 row-cols-sm-2 row-cols-md-4 d-flex justify-content-center" id="products">
+                    
+                </div>               
+            </div>
+        </section>
+       
+
+
+    </main>
+
+
+
+
+    <script src="js/jquery-3.6.3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <script src="js/chance.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+<script src="https://kit.fontawesome.com/cfc8fd8620.js" crossorigin="anonymous"></script>
+</html>
